@@ -42,7 +42,7 @@
 
                                 @if ($lapangan->status == 1)
                                     @if (Auth::check())
-                                        <a href="{{ url('/penyewaan') }}" class="btn btn-book">Book Now</a>
+                                        <a href="{{ url('/booking') }}" class="btn btn-book">Book Now</a>
                                     @else
                                         <a href="{{ url('/login') }}" class="btn btn-book">Book Now</a>
                                     @endif

@@ -14,11 +14,11 @@ class PenyewaanModel extends Model
     protected $fillable = [
         'user_id',
         'lapangan_id',
-        'pelanggan_id',
         'tanggal',
         'jam_mulai',
         'jam_selesai',
         'total_harga',
+        'bukti_id',
         'status'
     ];
 
@@ -29,10 +29,6 @@ class PenyewaanModel extends Model
     }
 
     // Relasi ke pelanggan
-    public function pelanggan()
-    {
-        return $this->belongsTo(PelangganModel::class);
-    }
 
     public function user()
     {

@@ -18,11 +18,6 @@ return new class extends Migration
                 ->constrained('lapangans')
                 ->onDelete('cascade');
 
-
-            $table->foreignId('pelanggan_id')
-                ->constrained('pelanggan')
-                ->onDelete('cascade');
-
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->onDelete('cascade');
@@ -32,13 +27,14 @@ return new class extends Migration
             $table->time('jam_selesai');
 
             $table->integer('total_harga');
-
+            
             $table->enum('status', [
                 'dipesan',
                 'berjalan',
                 'selesai',
                 'batal'
             ])->default('dipesan');
+            $table->string('bukti')->nullable();
 
             $table->timestamps();
         });

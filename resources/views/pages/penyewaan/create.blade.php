@@ -14,9 +14,25 @@
                     <form action="{{ route('penyewaan.store') }}" method="POST">
                         @csrf
 
+                        {{-- Pilih akun --}}
+                        <div class="mb-3">
+                            <label for="user_id" class="form-label">Nama akun pemesan</label>
+                            <select name="user_id" id="user_id" class="form-select">
+                                <option value="">Pilih Pemesan</option>
+                                @foreach ($user as $item)
+                                    <option value="{{ $item->id }}" {{ old('user_id') == $item->id ? 'selected' : '' }}>
+                                        {{ $item->email }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('user_id')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         {{-- Pilih Lapangan --}}
                         <div class="mb-3">
-                            <label for="lapangan_id" class="form-label">Nama Lapangan</label>
+                            <label for="lapangan_id" class="form-label">Pilih Lapangan</label>
                             <select name="lapangan_id" id="lapangan_id" class="form-select">
                                 <option value="">Pilih Lapangan</option>
                                 @foreach ($lapangan as $item)
@@ -27,23 +43,6 @@
                                 @endforeach
                             </select>
                             @error('lapangan_id')
-                                <div class="text-danger mt-2">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        {{-- Pilih Pelanggan --}}
-                        <div class="mb-3">
-                            <label for="pelanggan_id" class="form-label">Nama Penyewa</label>
-                            <select name="pelanggan_id" id="pelanggan_id" class="form-select">
-                                <option value="">Pilih Pelanggan</option>
-                                @foreach ($pelanggan as $item)
-                                    <option value="{{ $item->id }}"
-                                        {{ old('pelanggan_id') == $item->id ? 'selected' : '' }}>
-                                        {{ $item->nama }} - {{ $item->no_hp }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('pelanggan_id')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
@@ -60,24 +59,18 @@
                         {{-- Jam Mulai --}}
                         <label for="jam_mulai" class="form-label">Jam Mulai</label>
                         <div class="form-group">
-                            <select id="time" name="jam_mulai" value="{{ old('jam_mulai') }}" class="form-select">
+                            <select id="jam_mulai" name="jam_mulai" class="form-select">
                                 <option value="">-- Pilih Waktu --</option>
-                                <option value="09:00">09:00</option>
-                                <option value="10:00">10:00</option>
-                                <option value="11:00">11:00</option>
-                                <option value="12:00">12:00</option>
-                                <option value="13:00">13:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <option value="18:00">18:00</option>
-                                <option value="19:00">19:00</option>
-                                <option value="20:00">20:00</option>
-                                <option value="21:00">21:00</option>
-                                <option value="22:00">22:00</option>
-                                <option value="23:00">23:00</option>
+                                @for ($i = 9; $i <= 23; $i++)
+                                    @php
+                                        $jam = sprintf('%02d:00', $i);
+                                    @endphp
+                                    <option value="{{ $jam }}" {{ old('jam_mulai') == $jam ? 'selected' : '' }}>
+                                        {{ $jam }}
+                                    </option>
+                                @endfor
                             </select>
+                            
                             @error('jam_mulai')
                                 <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
@@ -87,32 +80,22 @@
                         <div class="mb-3">
                             <label for="jam_selesai" class="form-label">Jam Selesai</label>
                             <div class="form-group">
-                                <select id="time" name="jam_selesai" value="{{ old('jam_selesai') }}"
-                                    class="form-select">
+                                <select id="jam_selesai" name="jam_selesai" class="form-select">
                                     <option value="">-- Pilih Waktu --</option>
-                                    <option value="09:00">09:00</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="18:00">18:00</option>
-                                    <option value="19:00">19:00</option>
-                                    <option value="20:00">20:00</option>
-                                    <option value="21:00">21:00</option>
-                                    <option value="22:00">22:00</option>
-                                    <option value="23:00">23:00</option>
-                                </select>
+                                    @for ($i = 9; $i <= 23; $i++)
+                                        @php
+                                            $jam = sprintf('%02d:00', $i);
+                                        @endphp
+                                        <option value="{{ $jam }}" {{ old('jam_selesai') == $jam ? 'selected' : '' }}>
+                                            {{ $jam }}
+                                        </option>
+                                    @endfor
+                                </select>                                
                                 @error('jam_selesai')
                                     <div class="text-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
-                            @error('jam_selesai')
-                                <div class="text-danger mt-2">{{ $message }}</div>
-                            @enderror
+
                         </div>
 
                         {{-- Status --}}

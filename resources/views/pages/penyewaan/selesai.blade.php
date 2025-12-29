@@ -27,8 +27,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->lapangan->nama_lapangan ?? '-' }}</td>
-                                        <td>{{ $item->pelanggan->nama ?? '-' }}</td>
-                                        <td>{{ $item->pelanggan->no_hp ?? '-' }}</td>
+                                        <td>{{ $item->user->name ?? '-' }}</td>
+                                        <td>{{ $item->user->no_telp ?? '-' }}</td>
                                         <td>{{ $item->tanggal }}</td>
                                         <td>{{ $item->jam_mulai }} - {{ $item->jam_selesai }}</td>
                                         <td>Rp {{ number_format($item->total_harga, 0, ',', '.') }}</td>

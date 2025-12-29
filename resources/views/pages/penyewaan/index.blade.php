@@ -33,8 +33,9 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Lapangan</th>
+                                    <th>Nama Akun</th>
                                     <th>Penyewa</th>
+                                    <th>Lapangan</th>
                                     <th>No HP</th>
                                     <th>Tanggal</th>
                                     <th>Jam</th>
@@ -48,9 +49,10 @@
                                 @forelse ($penyewaan as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->user->email ?? '-' }}</td>
+                                        <td>{{ $item->user->name?? '-' }}</td>
                                         <td>{{ $item->lapangan->nama_lapangan ?? '-' }}</td>
-                                        <td>{{ $item->pelanggan->nama ?? '-' }}</td>
-                                        <td>{{ $item->pelanggan->no_hp ?? '-' }}</td>
+                                        <td>{{ $item->user->no_telp ?? '-' }}</td>
                                         <td>{{ $item->tanggal }}</td>
                                         <td>
                                             {{ $item->jam_mulai }} - {{ $item->jam_selesai }}
