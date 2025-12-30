@@ -18,7 +18,7 @@ class PenyewaanModel extends Model
         'jam_mulai',
         'jam_selesai',
         'total_harga',
-        'bukti_id',
+        'bukti',
         'status'
     ];
 

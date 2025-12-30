@@ -17,7 +17,7 @@
 
         html, body {
             width: 100%;
-            height: 100vh;
+            height: 100%;
         }
 
         body {
@@ -26,7 +26,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* 🔴 PENTING */
         }
 
         /* Background */
@@ -45,100 +44,134 @@
                 repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0, transparent 2px, transparent 60px);
         }
 
-        /* Card */
+        /* Card container */
         .login-container {
             width: 100%;
-            max-width: 360px;
-            padding: 10px;
+            max-width: 340px;
+            padding: 12px;
             z-index: 2;
         }
 
         .login-card {
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+            border-radius: 14px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.35);
         }
 
         .card-header {
             background: linear-gradient(135deg, #1e88e5, #1565c0);
-            padding: 14px;
+            padding: 10px;
             text-align: center;
         }
 
         .logo-circle {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 6px;
+            margin: 0 auto 4px;
         }
 
         .logo-circle span {
-            font-size: 24px;
+            font-size: 20px;
         }
 
         .brand-title {
             color: white;
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 700;
             margin: 0;
         }
 
         .brand-subtitle {
             color: rgba(255,255,255,0.85);
-            font-size: 11px;
+            font-size: 10px;
         }
 
         .card-body {
-            padding: 14px;
+            padding: 12px;
         }
 
         .welcome-text {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .welcome-text h4 {
             color: #1565c0;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
+        }
+
+        label {
+            font-size: 12px;
         }
 
         .form-control {
-            border-radius: 8px;
-            padding: 8px 10px;
-            font-size: 13px;
+            border-radius: 6px;
+            padding: 6px 8px;
+            font-size: 12px;
         }
 
         .mb-2 {
-            margin-bottom: 8px !important;
+            margin-bottom: 6px !important;
         }
 
         .btn {
-            padding: 10px;
-            font-size: 14px;
+            padding: 8px;
+            font-size: 13px;
             font-weight: 600;
         }
 
         .alert {
-            font-size: 12px;
+            font-size: 11px;
             padding: 6px;
-            border-radius: 8px;
+            border-radius: 6px;
+            margin-bottom: 6px;
         }
 
         .footer-link {
             text-align: center;
-            margin-top: 8px;
-            font-size: 12px;
+            margin-top: 6px;
+            font-size: 11px;
         }
 
         .footer-link a {
             text-decoration: none;
             font-weight: 600;
             color: #1e88e5;
+        }
+
+        /* Layar sangat pendek */
+        @media (max-height: 620px) {
+            .login-container {
+                max-width: 320px;
+            }
+
+            .brand-title {
+                font-size: 14px;
+            }
+
+            .welcome-text h4 {
+                font-size: 14px;
+            }
+
+            label {
+                font-size: 11px;
+            }
+
+            .form-control {
+                padding: 5px 7px;
+                font-size: 11px;
+            }
+
+            .btn {
+                padding: 7px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -181,7 +214,12 @@
                                    value="{{ old('name') }}">
                             <input type="hidden" name="role" 
                                    value="user">
-                        </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Nomor Telepon</label>
+                                    <input type="number" name="no_telp" class="form-control"
+                                           value="{{ old('no_telp') }}">
+                                </div>
                         <div class="mb-3">
                             <label>Email</label>
                             <input type="email" name="email" class="form-control"

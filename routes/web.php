@@ -50,6 +50,7 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::get('/penyewaan', [PenyewaanController::class, 'index'])->name('penyewaan.index');
     Route::get('/penyewaan/berhasil', [PenyewaanController::class, 'getSuccess'])->name('penyewaan.berhasil');
     Route::get('/penyewaan/berjalan', [PenyewaanController::class, 'getPlay'])->name('penyewaan.berjalan');
+    Route::get('/penyewaan/menunggu', [PenyewaanController::class, 'getWait'])->name('penyewaan.menunggu');
 });
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

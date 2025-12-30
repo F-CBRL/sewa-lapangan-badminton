@@ -99,7 +99,7 @@
                         </div>
 
                         {{-- Status --}}
-                        {{-- <div class="mb-3">
+                        <div class="mb-3">
                         <label for="status" class="form-label">Status</label>
                         <select name="status" id="status" class="form-select">
                             <option value="">Pilih Status</option>
@@ -108,7 +108,7 @@
                         @error('status')
                             <div class="text-danger mt-2">{{ $message }}</div>
                         @enderror
-                    </div> --}}
+                    </div> 
 
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="{{ route('penyewaan.index') }}" class="btn btn-secondary">

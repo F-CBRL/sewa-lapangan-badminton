@@ -27,14 +27,15 @@ return new class extends Migration
             $table->time('jam_selesai');
 
             $table->integer('total_harga');
-            
+            $table->string('bukti')->nullable();
             $table->enum('status', [
+                'menunggu',
                 'dipesan',
                 'berjalan',
                 'selesai',
                 'batal'
             ])->default('dipesan');
-            $table->string('bukti')->nullable();
+           
 
             $table->timestamps();
         });

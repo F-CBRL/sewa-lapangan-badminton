@@ -136,17 +136,33 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">🏸 Badminton Court</a>
+    
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Booking</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                </li>
+    
+                <li class="nav-item">
+                    @if (Auth::check())
+                        <a class="nav-link" href="{{ route('booking') }}">Booking</a>
+                    @else
+                        <a class="nav-link" href="{{ route('login') }}">Booking</a>
+                    @endif
+                </li>
+    
                 @if (Auth::check())
-                    <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                    </li>
                 @else
-                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
                 @endif
             </ul>
         </div>
     </nav>
+    
 
     @yield('content')
 

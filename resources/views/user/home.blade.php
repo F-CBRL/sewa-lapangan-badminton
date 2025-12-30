@@ -3,7 +3,7 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container">
-            <h1>Book Your Badminton Court</h1>
+            <h1>Sewa Lapangan Badmintonmu</h1>
             <p>Mudah, cepat, dan fleksibel</p>
         </div>
     </section>
@@ -42,9 +42,9 @@
 
                                 @if ($lapangan->status == 1)
                                     @if (Auth::check())
-                                        <a href="{{ url('/booking') }}" class="btn btn-book">Book Now</a>
+                                        <a href="{{ url('/booking') }}" class="btn btn-book">Sewa Sekarang</a>
                                     @else
-                                        <a href="{{ url('/login') }}" class="btn btn-book">Book Now</a>
+                                        <a href="{{ url('/login') }}" class="btn btn-book">Sewa Sekarang</a>
                                     @endif
                                 @else
                                     <button class="btn btn-secondary w-100" disabled>

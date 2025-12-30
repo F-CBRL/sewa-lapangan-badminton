@@ -29,11 +29,20 @@ class PenyewaanController extends Controller
         return view('pages.penyewaan.berjalan', compact('berjalan'));
     }
 
-    public function createUser(){
+    public function getWait(Request $request)
+    {
+        $paginate = $request->input('paginate', 10);
+        $menunggu = PenyewaanModel::where('status', 'menunggu')->paginate($paginate);
+
+        return view('pages.penyewaan.menunggu', compact('menunggu'));
+    }
+
+    public function createUser()
+    {
         $lapangan  = Lapangan::where('status', 1)->get();
         $user = User::all();
 
-        return view('user.booking', compact('lapangan','user'));
+        return view('user.booking', compact('lapangan', 'user'));
     }
 
     private function updateStatusOtomatis()
@@ -75,7 +84,7 @@ class PenyewaanController extends Controller
         $lapangan  = Lapangan::where('status', 1)->get();
         $user = User::all();
 
-        return view('pages.penyewaan.create', compact('lapangan','user'));
+        return view('pages.penyewaan.create', compact('lapangan', 'user'));
     }
 
     public function store(Request $request)
@@ -101,6 +110,7 @@ class PenyewaanController extends Controller
                     }
                 ],
                 'jam_selesai'  => 'required|after:jam_mulai',
+                'bukti' => 'image|mimes:jpg,jpeg,png|max:2048',
             ],
             [
                 'lapangan_id.required'  => 'Lapangan wajib diisi.',
@@ -113,6 +123,9 @@ class PenyewaanController extends Controller
                 'jam_mulai.required'    => 'Jam mulai wajib diisi.',
                 'jam_selesai.required'  => 'Jam selesai wajib diisi.',
                 'jam_selesai.after'     => 'Jam selesai harus setelah jam mulai.',
+                'bukti.image' => 'File harus berupa gambar.',
+                'bukti.mimes' => 'Gambar harus berformat jpg, jpeg, atau png.',
+                'bukti.max' => 'Ukuran gambar maksimal 2MB.',
             ]
         );
 
@@ -150,9 +163,17 @@ class PenyewaanController extends Controller
         $penyewaan->jam_mulai    = $request->jam_mulai;
         $penyewaan->jam_selesai  = $request->jam_selesai;
         $penyewaan->total_harga  = $durasi * $lapangan->harga_per_jam;
-        $penyewaan->status       = 'dipesan';
+        if ($request->hasFile('bukti')) {
+            $file = $request->file('bukti');
+            $namaFile = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('bukti'), $namaFile);
+            $penyewaan->bukti = $namaFile;
+        }
+        $penyewaan->status = FacadesAuth::user()->role === 'admin'
+            ? 'dipesan'
+            : 'menunggu';
         $penyewaan->save();
-        
+
         if (FacadesAuth::user()->role === 'admin') {
             return redirect()->route('penyewaan.index')
                 ->with('success', 'Penyewaan berhasil ditambahkan');
@@ -160,7 +181,6 @@ class PenyewaanController extends Controller
             return redirect()->route('home')
                 ->with('success', 'Penyewaan berhasil ditambahkan');
         }
-        
     }
 
     public function edit($id)
@@ -234,6 +254,22 @@ class PenyewaanController extends Controller
         $penyewaan->jam_mulai    = $request->jam_mulai;
         $penyewaan->jam_selesai  = $request->jam_selesai;
         $penyewaan->total_harga  = $durasi * $lapangan->harga_per_jam;
+        if ($request->hasFile('bukti')) {
+
+            // hapus bukti lama
+            if ($penyewaan->bukti && file_exists(public_path('bukti/' . $penyewaan->bukti))) {
+                unlink(public_path('bukti/' . $penyewaan->bukti));
+            }
+        
+            $file = $request->file('bukti');
+            $namaFile = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('bukti'), $namaFile);
+        
+            $penyewaan->bukti = $namaFile;
+        }
+        
+
+
         $penyewaan->save();
 
         return redirect()->route('penyewaan.index')
@@ -243,7 +279,11 @@ class PenyewaanController extends Controller
     public function destroy($id)
     {
         $penyewaan = PenyewaanModel::findOrFail($id);
+        if ($penyewaan->bukti && file_exists(public_path('bukti/' . $penyewaan->bukti))) {
+            unlink(public_path('bukti/' . $penyewaan->bukti));
+        }        
         $penyewaan->delete();
+
 
         return redirect()->route('penyewaan.index')
             ->with('success', 'Penyewaan berhasil dihapus');
