@@ -96,47 +96,6 @@
                         </li>
                     </ul>
                 </li>
-
-                <li>
-                    <span class="sidebar-divider lg"></span>
-                </li>
-                <li class="nav-small-cap">
-                    <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
-                    <span class="hide-menu">Apps</span>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link justify-content-between" href="#" aria-expanded="false">
-                        <div class="d-flex align-items-center gap-3">
-                            <span class="d-flex">
-                                <i class="ti ti-user-circle"></i>
-                            </span>
-                            <span class="hide-menu">User Profile</span>
-                        </div>
-
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link justify-content-between" href="#" aria-expanded="false">
-                        <div class="d-flex align-items-center gap-3">
-                            <span class="d-flex">
-                                <i class="ti ti-calendar"></i>
-                            </span>
-                            <span class="hide-menu">Calendar</span>
-                        </div>
-
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link justify-content-between" href="#" aria-expanded="false">
-                        <div class="d-flex align-items-center gap-3">
-                            <span class="d-flex">
-                                <i class="ti ti-file-text"></i>
-                            </span>
-                            <span class="hide-menu">Invoice</span>
-                        </div>
-                    </a>
-                </li>
-
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
