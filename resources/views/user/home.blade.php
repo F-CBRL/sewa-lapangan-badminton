@@ -1,4 +1,7 @@
 @extends('user.layouts.app')
+@section('title')
+    Home - Badminton Court Booking
+@endsection
 @section('content')
     <!-- HERO -->
     <section class="hero">
@@ -60,4 +63,49 @@
 
         </div>
     </section>
+
+    <!-- CONTACT SECTION -->
+<section class="contact-section" id="kontak">
+    <div class="container">
+        <div class="section-title">
+            <h2>📞 Hubungi Kami</h2>
+            <p>Ada pertanyaan? Kami siap membantu Anda!</p>
+        </div>
+
+        <!-- Contact Info Boxes -->
+        <div class="row mb-4">
+            <div class="col-lg-6 mb-4">
+                <div class="contact-info-box">
+                    <div class="contact-icon">📍</div>
+                    <h4>Alamat</h4>
+                    <p>Jl. Olahraga No. 123<br>Palu, Sulawesi Tengah<br>94111</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="contact-info-box">
+                    <div class="contact-icon">📞</div>
+                    <h4>Telepon</h4>
+                    <p>+62 451 123 4567<br>+62 812 3456 7890</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="contact-info-box">
+                    <div class="contact-icon">✉️</div>
+                    <h4>Email</h4>
+                    <p>info@badmintoncourt.com</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="contact-info-box">
+                    <div class="contact-icon">🕐</div>
+                    <h4>Jam Operasional</h4>
+                    <p>Senin - Minggu: 09:00 - 23:00</p>
+                </div>
+            </div>
+        </div>  
+    </div>
+</section>
 @endsection

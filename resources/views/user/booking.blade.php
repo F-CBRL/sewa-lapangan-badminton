@@ -1,5 +1,4 @@
 @extends('user.layouts.app')
-
 <style>
     .booking-container {
         max-width: 900px;
@@ -100,7 +99,8 @@
         color: #1e88e5;
     }
 
-    .form-control, .form-select {
+    .form-control,
+    .form-select {
         border: 2px solid #e3e8ef;
         border-radius: 12px;
         padding: 13px 16px;
@@ -109,7 +109,8 @@
         background: #f8f9fa;
     }
 
-    .form-control:focus, .form-select:focus {
+    .form-control:focus,
+    .form-select:focus {
         border-color: #1e88e5;
         box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.15);
         background: white;
@@ -288,7 +289,9 @@
         }
     }
 </style>
-
+@section('title')
+    Booking - Badminton Court Booking
+@endsection
 <div class="booking-container">
     <div class="card booking-card">
         <div class="booking-header">
@@ -310,7 +313,7 @@
                 @csrf
 
                 {{-- Section 1: Account Info --}}
-                <div class="form-section">
+                {{-- <div class="form-section">
                     <div class="mb-3">
                         <label for="user_id" class="form-label">
                             <span class="label-icon">📧</span>
@@ -328,7 +331,7 @@
                             <div class="text-danger mt-2">⚠️ {{ $message }}</div>
                         @enderror
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- Section 2: Court Selection --}}
                 <div class="form-section">
@@ -340,7 +343,8 @@
                         <select name="lapangan_id" id="lapangan_id" class="form-select">
                             <option value="">Pilih Lapangan</option>
                             @foreach ($lapangan as $item)
-                                <option value="{{ $item->id }}" {{ old('lapangan_id') == $item->id ? 'selected' : '' }}>
+                                <option value="{{ $item->id }}"
+                                    {{ old('lapangan_id') == $item->id ? 'selected' : '' }}>
                                     {{ $item->nama_lapangan }}
                                 </option>
                             @endforeach
@@ -358,7 +362,8 @@
                             <span class="label-icon">📆</span>
                             Tanggal Main
                         </label>
-                        <input type="date" name="tanggal" id="tanggal" value="{{ old('tanggal') }}" class="form-control">
+                        <input type="date" name="tanggal" id="tanggal" value="{{ old('tanggal') }}"
+                            class="form-control">
                         @error('tanggal')
                             <div class="text-danger mt-2">⚠️ {{ $message }}</div>
                         @enderror
@@ -371,15 +376,21 @@
                                 Waktu Mulai
                             </label>
                             <select id="jam_mulai" name="jam_mulai" class="form-select">
-                                <option value="">-- Select Time --</option>
-                                @for ($i = 9; $i <= 23; $i++)
-                                    @php
-                                        $jam = sprintf('%02d:00', $i);
-                                    @endphp
-                                    <option value="{{ $jam }}" {{ old('jam_mulai') == $jam ? 'selected' : '' }}>
-                                        {{ $jam }}
-                                    </option>
-                                @endfor
+                                <option value="">-- Pilih Waktu --</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                                <option value="22:00">22:00</option>
                             </select>
                             @error('jam_mulai')
                                 <div class="text-danger mt-2">⚠️ {{ $message }}</div>
@@ -392,15 +403,21 @@
                                 Waktu Selesai
                             </label>
                             <select id="jam_selesai" name="jam_selesai" class="form-select">
-                                <option value="">-- Select Time --</option>
-                                @for ($i = 9; $i <= 23; $i++)
-                                    @php
-                                        $jam = sprintf('%02d:00', $i);
-                                    @endphp
-                                    <option value="{{ $jam }}" {{ old('jam_selesai') == $jam ? 'selected' : '' }}>
-                                        {{ $jam }}
-                                    </option>
-                                @endfor
+                                <option value="">-- Pilih Waktu --</option>
+                                <option value="09:59">10:00</option>
+                                <option value="10:59">11:00</option>
+                                <option value="11:59">12:00</option>
+                                <option value="12:59">13:00</option>
+                                <option value="13:59">14:00</option>
+                                <option value="14:59">15:00</option>
+                                <option value="15:59">16:00</option>
+                                <option value="16:59">17:00</option>
+                                <option value="17:59">18:00</option>
+                                <option value="18:59">19:00</option>
+                                <option value="19:59">20:00</option>
+                                <option value="20:59">21:00</option>
+                                <option value="21:59">22:00</option>
+                                <option value="23:00">23:00</option>
                             </select>
                             @error('jam_selesai')
                                 <div class="text-danger mt-2">⚠️ {{ $message }}</div>
@@ -422,7 +439,8 @@
                             Upload bukti pembayaran
                         </label>
                         <div class="file-upload-wrapper">
-                            <input type="file" name="bukti" class="form-control file-upload-input" id="bukti" accept="image/*" onchange="displayFileName(this)">
+                            <input type="file" name="bukti" class="form-control file-upload-input" id="bukti"
+                                accept="image/*" onchange="displayFileName(this)">
                             <label class="file-upload-label" for="bukti">
                                 <div>
                                     <div class="file-upload-icon">📤</div>
@@ -453,14 +471,13 @@
 </div>
 
 <script>
-function displayFileName(input) {
-    const fileName = input.files[0]?.name;
-    const fileNameDisplay = document.getElementById('file-name');
-    if (fileName) {
-        fileNameDisplay.textContent = '✓ ' + fileName;
-    } else {
-        fileNameDisplay.textContent = '';
+    function displayFileName(input) {
+        const fileName = input.files[0]?.name;
+        const fileNameDisplay = document.getElementById('file-name');
+        if (fileName) {
+            fileNameDisplay.textContent = '✓ ' + fileName;
+        } else {
+            fileNameDisplay.textContent = '';
+        }
     }
-}
 </script>
-

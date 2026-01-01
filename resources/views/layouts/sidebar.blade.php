@@ -2,12 +2,13 @@
     <!-- Sidebar scroll-->
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.html" class="text-nowrap logo-img">
-                <img src="{{ asset('assets/images/logos/logo.svg') }}" alt="" />
+            <a href="./index.html" class="text-nowrap logo-img gap-2">
+                <img width="35" src="{{ asset('assets/images/logos/badminton-svgrepo-com-removebg-preview.png') }}" alt="" />
+                <span class="fw-bold text-primary">Badminton Court</span>
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-6"></i>
-            </div>
+            </div> 
         </div>
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
@@ -17,19 +18,19 @@
                     <span class="hide-menu">Home</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
                         <i class="ti ti-atom"></i>
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{url('/lapangan')}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ url('/lapangan') }}" aria-expanded="false">
                         <i class="ti ti-soccer-field"></i>
                         <span class="hide-menu">Data Lapangan</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{url('/pelanggan')}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ url('/pelanggan') }}" aria-expanded="false">
                         <i class="ti ti-man"></i>
                         <span class="hide-menu">Data penyewa</span>
                     </a>
@@ -50,7 +51,7 @@
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a class="sidebar-link justify-content-between" href="{{url('/penyewaan/menunggu')}}">
+                            <a class="sidebar-link justify-content-between" href="{{ url('/penyewaan/menunggu') }}">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
@@ -61,7 +62,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link justify-content-between" href="{{url('/penyewaan')}}">
+                            <a class="sidebar-link justify-content-between" href="{{ url('/penyewaan') }}">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
@@ -72,7 +73,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link justify-content-between" href="{{url('/penyewaan/berjalan')}}">
+                            <a class="sidebar-link justify-content-between" href="{{ url('/penyewaan/berjalan') }}">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
@@ -83,7 +84,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link justify-content-between" href="{{url('/penyewaan/berhasil')}}">
+                            <a class="sidebar-link justify-content-between" href="{{ url('/penyewaan/berhasil') }}">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>

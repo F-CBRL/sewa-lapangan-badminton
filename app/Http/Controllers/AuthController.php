@@ -34,7 +34,7 @@ class AuthController extends Controller
             if (Auth::user()->role != 'admin') {
                 return redirect()->intended('/')->with('success', 'Berhasil login!');
             }
-            return redirect()->intended('/lapangan')->with('success', 'Berhasil login!');
+            return redirect()->intended('/dashboard')->with('success', 'Berhasil login!');
         }
 
         return back()->withErrors([

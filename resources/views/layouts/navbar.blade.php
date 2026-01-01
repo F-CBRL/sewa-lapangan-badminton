@@ -6,7 +6,7 @@
                     <i class="ti ti-menu-2"></i>
                 </a>
             </li>
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a class="nav-link " href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="ti ti-bell"></i>
@@ -22,7 +22,7 @@
                         </a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
         </ul>
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">

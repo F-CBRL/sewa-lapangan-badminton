@@ -18,7 +18,7 @@
                     @endif
                     <div class="d-md-flex align-items-center">
                         <div>
-                            <h4 class="card-title">Konfirmasi Penyewaan</h4>
+                            <h4 class="card-title">Menunggu Konfirmasi</h4>
                         </div>
                     </div>
 
@@ -82,12 +82,13 @@
                                                 </button>
                                             </form>
                                         
-                                            <form action="{{ route('penyewaan.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                            <form action="{{ route('penyewaan.updateStatus', $item->id) }}" method="POST" style="display:inline;">
                                                 @csrf
-                                                @method('DELETE')
+                                                @method('PUT')
+                                                <input type="hidden" name="status" value="batal">
                                                 <button class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Yakin hapus data?')">
-                                                    Hapus
+                                                    onclick="return confirm('Yakin ingin membatalkan pesanan?')">
+                                                    Batalkan
                                                 </button>
                                             </form>
                                         </td>                                        

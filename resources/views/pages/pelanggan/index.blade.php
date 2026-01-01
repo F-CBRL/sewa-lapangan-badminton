@@ -11,15 +11,6 @@
                             <h4 class="card-title">Data Penyewa</h4>
                         </div>
                         <div class="ms-auto mt-3 mt-md-0">
-                            <a href="{{ route('pelanggan.create') }}" class="btn btn-primary mb-3">
-                                Tambah
-                            </a>
-
-                            @if (session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
                         </div>
                     </div>
                     <div class="table-responsive mt-4">
@@ -28,7 +19,8 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Nomor Telepon</th>
+                                    <th>email</th>
+                                    <th>no telp</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -36,14 +28,10 @@
                                 @forelse ($pelanggan as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->no_hp }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->no_telp }}</td>
                                         <td>
-                                            <a href="{{ route('pelanggan.edit', $item->id) }}"
-                                                class="btn btn-warning btn-sm">
-                                                Edit
-                                            </a>
-
                                             <form action="{{ route('pelanggan.destroy', $item->id) }}" method="POST"
                                                 style="display:inline;">
                                                 @csrf
@@ -57,7 +45,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4" class="text-center">
+                                        <td colspan="5" class="text-center">
                                             Data pelanggan belum ada
                                         </td>
                                     </tr>
