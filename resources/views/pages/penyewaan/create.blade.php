@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <select id="jam_mulai" name="jam_mulai" class="form-select">
                                 <option value="">-- Pilih Waktu --</option>
-                                @for ($i = 9; $i <= 23; $i++)
+                                @for ($i = 9; $i <= 22; $i++)
                                     @php
                                         $jam = sprintf('%02d:00', $i);
                                     @endphp
@@ -82,7 +82,7 @@
                             <div class="form-group">
                                 <select id="jam_selesai" name="jam_selesai" class="form-select">
                                     <option value="">-- Pilih Waktu --</option>
-                                    @for ($i = 9; $i <= 23; $i++)
+                                    @for ($i = 10; $i <= 23; $i++)
                                         @php
                                             $jam = sprintf('%02d:00', $i);
                                         @endphp

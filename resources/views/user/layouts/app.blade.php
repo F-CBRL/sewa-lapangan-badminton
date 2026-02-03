@@ -70,6 +70,20 @@
             transition: .3s;
         }
 
+        .court-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .court-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+
         .court-card:hover {
             transform: translateY(-8px);
         }
@@ -124,107 +138,110 @@
         }
 
         .contact-section {
-        padding: 80px 0;
-        background: #f5f7fa;
-    }
+            padding: 80px 0;
+            background: #f5f7fa;
+        }
 
-    .contact-card {
-        background: white;
-        border-radius: 20px;
-        padding: 40px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        height: 100%;
-    }
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
 
-    .contact-info-box {
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
-        transition: 0.3s;
-    }
+        .contact-info-box {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
 
-    .contact-info-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    }
+        .contact-info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
 
-    .contact-icon {
-        width: 70px;
-        height: 70px;
-        background: linear-gradient(135deg, #1e88e5, #1565c0);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 30px;
-        color: white;
-        margin-bottom: 20px;
-    }
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1e88e5, #1565c0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            margin-bottom: 20px;
+        }
 
-    .contact-info-box h4 {
-        font-weight: 700;
-        color: #1565c0;
-        margin-bottom: 10px;
-    }
+        .contact-info-box h4 {
+            font-weight: 700;
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
 
-    .contact-info-box p {
-        color: #666;
-        margin: 0;
-        font-size: 15px;
-    }
+        .contact-info-box p {
+            color: #666;
+            margin: 0;
+            font-size: 15px;
+        }
 
-    .section-title {
-        text-align: center;
-        margin-bottom: 50px;
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-    .section-title h2 {
-        font-size: 38px;
-        font-weight: 800;
-        color: #1565c0;
-        margin-bottom: 10px;
-    }
+        .section-title h2 {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
 
-    .section-title p {
-        color: #666;
-        font-size: 16px;
-    }
+        .section-title p {
+            color: #666;
+            font-size: 16px;
+        }
 
-    .form-label {
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 8px;
-    }
+        .form-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
 
-    .form-control, .form-select {
-        border-radius: 10px;
-        border: 2px solid #e0e0e0;
-        padding: 12px 15px;
-        transition: 0.3s;
-    }
+        .form-control,
+        .form-select {
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            padding: 12px 15px;
+            transition: 0.3s;
+        }
 
-    .form-control:focus, .form-select:focus {
-        border-color: #1e88e5;
-        box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.15);
-    }
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.15);
+        }
 
-    .btn-submit {
-        background: linear-gradient(135deg, #1e88e5, #1565c0);
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 12px 40px;
-        font-weight: 600;
-        font-size: 16px;
-        transition: 0.3s;
-    }
+        .btn-submit {
+            background: linear-gradient(135deg, #1e88e5, #1565c0);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 40px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+        }
 
-    .btn-submit:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
-    }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+        }
+
         footer {
             background: #1a1a2e;
             color: white;

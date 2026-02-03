@@ -329,6 +329,8 @@ class PenyewaanController extends Controller
         return view('user.riwayat', compact('bookings'));
     }
 
+
+
     public function cancel(Request $request, $id)
     {
         $status = PenyewaanModel::findOrFail($id);
